@@ -1,0 +1,903 @@
+/* ---------- BASE ---------- */
+
+:root {
+    font-family: "Segoe UI", Arial, sans-serif;
+    color: #1a2020;
+    background: #f0f1eb;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+    --page: #f0f1eb;
+    --ink: #1a2020;
+    --muted: #777e79;
+    --green: #bcf65a;
+    --blue: #168be3;
+    --line: #dce0d8;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    margin: 0;
+    width: 100%;
+    scroll-behavior: auto;
+}
+
+body {
+    margin: 0;
+    min-width: 320px;
+    width: 100%;
+    background: var(--page);
+}
+
+body,
+button,
+a {
+    font-family: "Segoe UI", Arial, sans-serif;
+}
+
+a {
+    color: inherit;
+}
+
+#root {
+    min-height: 100%;
+}
+
+.site-shell {
+    width: 100%;
+    overflow: clip;
+    background:
+        radial-gradient(ellipse at 15% 15%, #ffffff 0%, transparent 45%),
+        var(--page);
+}
+
+/* ---------- SCROLL SCENE ---------- */
+
+.experience {
+    position: relative;
+    height: 280vh;
+    min-height: 1800px;
+    background: var(--page);
+}
+
+.stage {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    height: 100svh;
+    min-height: 620px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    padding: 0 clamp(20px, 5.5vw, 88px);
+    isolation: isolate;
+}
+
+.stage::before {
+    content: "";
+    position: absolute;
+    z-index: -2;
+    inset: 0;
+    pointer-events: none;
+    background:
+        radial-gradient(
+            circle at 87% 20%,
+            #d9edce 0,
+            transparent 24%
+        ),
+        radial-gradient(
+            circle at 10% 85%,
+            #ffffff 0,
+            transparent 30%
+        );
+}
+
+.stage::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.24;
+    background-image:
+        linear-gradient(#bdc8bc 1px, transparent 1px),
+        linear-gradient(90deg, #bdc8bc 1px, transparent 1px);
+    background-size: 48px 48px;
+    mask-image: linear-gradient(
+        to bottom,
+        black,
+        transparent 85%
+    );
+}
+
+/* ---------- NAVIGATION ---------- */
+
+.topbar {
+    width: 100%;
+    min-height: 76px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
+    border-bottom: 1px solid #d9ded5;
+    flex-shrink: 0;
+}
+
+.brand {
+    width: fit-content;
+    color: var(--ink);
+    text-decoration: none;
+    font-size: 24px;
+    line-height: 1;
+    font-weight: 850;
+    letter-spacing: -1.5px;
+}
+
+.brand span {
+    color: var(--blue);
+}
+
+.topbar-caption {
+    margin: 0;
+    justify-self: center;
+    color: #69716a;
+    font-size: 9px;
+    letter-spacing: 3px;
+    font-weight: 700;
+}
+
+.topbar-link {
+    justify-self: end;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--ink);
+    text-decoration: none;
+    font-size: 9px;
+    font-weight: 750;
+    letter-spacing: 1.2px;
+}
+
+.topbar-link span {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 27px;
+    height: 27px;
+    border: 1px solid #cbd1c8;
+    border-radius: 50%;
+    font-size: 14px;
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+}
+
+.topbar-link:hover span {
+    background: var(--green);
+    transform: translate(2px, 2px);
+}
+
+/* ---------- MAIN CONTENT ---------- */
+
+.scene-content {
+    width: 100%;
+    max-width: 1320px;
+    min-height: 0;
+    flex: 1;
+    margin: 0 auto;
+    padding: clamp(18px, 3vh, 32px) 0 14px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.intro-row {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 24px;
+    margin-bottom: clamp(18px, 3vh, 32px);
+}
+
+.intro-copy {
+    min-width: 0;
+}
+
+.eyebrow {
+    margin: 0 0 16px;
+    color: #57625b;
+    font-size: 9px;
+    font-weight: 750;
+    letter-spacing: 2.7px;
+}
+
+.eyebrow span {
+    color: var(--blue);
+}
+
+.intro-copy h1 {
+    margin: 0;
+    color: var(--ink);
+    font-size: clamp(36px, 4.6vw, 70px);
+    line-height: 0.98;
+    font-weight: 800;
+    letter-spacing: -3.2px;
+}
+
+.intro-copy h1 span {
+    color: #1384d5;
+}
+
+.scene-note {
+    flex-shrink: 0;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 5px;
+}
+
+.scene-note p {
+    margin: 0;
+    color: #69736b;
+    font-size: 11px;
+    line-height: 1.7;
+}
+
+.status-dot {
+    width: 7px;
+    height: 7px;
+    margin-top: 6px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background: #73b73e;
+    box-shadow: 0 0 0 4px #a4d87b35;
+}
+
+/* ---------- ROAD ---------- */
+
+.road {
+    position: relative;
+    isolation: isolate;
+    width: 100%;
+    height: clamp(104px, 15vh, 142px);
+    flex-shrink: 0;
+    overflow: hidden;
+    border: 1px solid #383f41;
+    border-radius: 13px;
+    background:
+        linear-gradient(180deg, #272e30, #1d2426 50%, #252b2d);
+    box-shadow:
+        0 15px 34px #19242018,
+        inset 0 1px 0 #ffffff12;
+}
+
+.road-grid {
+    position: absolute;
+    z-index: 0;
+    inset: 0;
+    opacity: 0.18;
+    pointer-events: none;
+    background-image:
+        linear-gradient(90deg, #98a6a5 1px, transparent 1px);
+    background-size: 46px 100%;
+}
+
+.road-edge {
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    pointer-events: none;
+    background: #d9e2dc42;
+}
+
+.road-edge-top {
+    top: 12px;
+}
+
+.road-edge-bottom {
+    bottom: 12px;
+}
+
+.road-center-line {
+    position: absolute;
+    z-index: 0;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    border-top: 2px dashed #e4eceb52;
+    transform: translateY(-50%);
+}
+
+/* Green trail stays at zero until scrolling begins. */
+.road-trail {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #bcf65a;
+    box-shadow: none;
+    transform: scaleX(0);
+    transform-origin: left center;
+    will-change: transform;
+    pointer-events: none;
+}
+
+/* ---------- WELCOME ITZFIZZ LETTERS ---------- */
+
+.road-word {
+    position: absolute;
+    z-index: 2;
+    top: 50%;
+    left: 20px;
+    right: 150px;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: clamp(1px, 0.18vw, 3px);
+
+    margin: 0;
+    color: #142015;
+    text-shadow: none;
+    font-size: clamp(18px, 2.1vw, 29px);
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: 0.01em;
+    white-space: nowrap;
+    pointer-events: none;
+    transform: translateY(-50%);
+}
+
+.value-letter {
+    display: inline-block;
+    flex: 0 0 auto;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    transform: translateY(8px) !important;
+
+    transition:
+        opacity 0.22s ease,
+        transform 0.22s ease;
+}
+
+.value-letter.is-revealed {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: translateY(0) !important;
+}
+
+.word-space {
+    display: block;
+    flex: 0 0 0.55em;
+}
+/* ---------- SPORTS CAR ---------- */
+
+.car {
+    position: absolute;
+    z-index: 4;
+    left: 16px;
+    top: 50%;
+    width: clamp(100px, 11vw, 145px);
+    height: auto;
+    aspect-ratio: 160 / 82;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translateY(-50%);
+    filter: drop-shadow(0 7px 7px #0008);
+    will-change: transform;
+    pointer-events: none;
+}
+
+.car-art {
+    display: block;
+    width: 100%;
+    height: auto;
+    overflow: visible;
+}
+
+/* ---------- ROAD CAPTIONS ---------- */
+
+.road-caption-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-top: 11px;
+    color: #7b827c;
+    font-size: 8px;
+    font-weight: 750;
+    letter-spacing: 1.7px;
+}
+
+.road-caption-row span:last-child {
+    color: #303b34;
+}
+
+/* ---------- METRIC CARDS ---------- */
+
+.metrics-heading {
+    margin-top: clamp(20px, 3vh, 32px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+.metrics-heading p {
+    margin: 0;
+    color: #333f36;
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.metrics-heading > span {
+    color: #838b82;
+    font-size: 8px;
+    font-weight: 700;
+    letter-spacing: 1.1px;
+}
+
+.metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 12px;
+    margin-top: 13px;
+}
+
+.metric-card {
+    position: relative;
+    min-width: 0;
+    min-height: 120px;
+    padding: 13px 15px 12px;
+    overflow: hidden;
+    border: 1px solid #dce2d8;
+    border-radius: 10px;
+    background: #ffffffc9;
+    box-shadow: 0 7px 20px #26352208;
+
+    /* Override GSAP's initial inline hidden state. */
+    opacity: 0 !important;
+    visibility: hidden !important;
+    transform: translateY(12px) !important;
+
+    transition:
+        opacity 0.24s ease,
+        transform 0.24s ease,
+        border-color 0.24s ease,
+        background 0.24s ease;
+}
+
+.metric-card.is-visible {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: translateY(0) !important;
+}
+
+.metric-card::after {
+    content: "";
+    position: absolute;
+    right: -18px;
+    bottom: -28px;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background: #dff5c9;
+    opacity: 0.45;
+    pointer-events: none;
+}
+
+.metric-card-top {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #838c81;
+    font-size: 8px;
+    font-weight: 750;
+    letter-spacing: 1px;
+}
+
+.metric-arrow {
+    font-size: 15px;
+    color: #49813a;
+}
+
+.metric-card h2 {
+    position: relative;
+    z-index: 1;
+    margin: 10px 0 4px;
+    color: var(--ink);
+    font-size: clamp(27px, 3vw, 43px);
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -1.5px;
+}
+
+.metric-card > p {
+    position: relative;
+    z-index: 1;
+    margin: 0;
+    color: #636c63;
+    font-size: 10px;
+    line-height: 1.45;
+}
+
+.metric-note {
+    position: relative;
+    z-index: 1;
+    display: block;
+    margin-top: 12px;
+    color: #73816b;
+    font-size: 7px;
+    font-weight: 750;
+    letter-spacing: 1px;
+}
+
+/* ---------- PROGRESS FOOTER ---------- */
+
+.progress-footer {
+    display: grid;
+    grid-template-columns: auto minmax(50px, 1fr) auto;
+    align-items: center;
+    gap: 14px;
+    margin-top: clamp(16px, 2.5vh, 25px);
+}
+
+.progress-footer > span:first-child {
+    color: #798278;
+    font-size: 8px;
+    font-weight: 800;
+    letter-spacing: 1.3px;
+}
+
+.progress-track {
+    height: 3px;
+    overflow: hidden;
+    border-radius: 10px;
+    background: #d4dbd1;
+}
+
+.progress-fill {
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+    background: #548f36;
+    transform: scaleX(0);
+    transform-origin: left center;
+    will-change: transform;
+}
+
+.progress-number {
+    display: flex;
+    align-items: baseline;
+    gap: 2px;
+    color: #2d3b2c;
+    font-size: 13px;
+    font-weight: 800;
+    font-variant-numeric: tabular-nums;
+}
+
+.progress-number > span {
+    min-width: 18px;
+    text-align: right;
+}
+
+/* ---------- TABLET ---------- */
+
+@media (max-width: 900px) {
+    .stage {
+        padding-right: 28px;
+        padding-left: 28px;
+    }
+
+    .topbar {
+        min-height: 65px;
+    }
+
+    .intro-copy h1 {
+        font-size: clamp(38px, 6vw, 55px);
+        letter-spacing: -2px;
+    }
+
+    .scene-note p {
+        font-size: 10px;
+    }
+
+    .metrics-grid {
+        gap: 8px;
+    }
+
+    .metric-card {
+        padding: 12px 10px;
+        min-height: 110px;
+    }
+
+    .metric-card > p {
+        font-size: 9px;
+    }
+
+    .metric-note {
+        letter-spacing: 0.6px;
+        font-size: 6px;
+    }
+}
+
+/* ---------- MOBILE ---------- */
+
+@media (max-width: 600px) {
+    .experience {
+        height: 260vh;
+        min-height: 1560px;
+    }
+
+    .stage {
+        height: 100vh;
+        height: 100svh;
+        min-height: 600px;
+        padding: 0 15px;
+    }
+
+    .topbar {
+        min-height: 57px;
+        grid-template-columns: 1fr auto;
+    }
+
+    .brand {
+        font-size: 21px;
+    }
+
+    .topbar-caption {
+        display: none;
+    }
+
+    .topbar-link {
+        gap: 6px;
+        font-size: 7px;
+        letter-spacing: 0.6px;
+    }
+
+    .topbar-link span {
+        width: 23px;
+        height: 23px;
+        font-size: 12px;
+    }
+
+    .scene-content {
+        padding: 15px 0 12px;
+        justify-content: center;
+    }
+
+    .intro-row {
+        align-items: flex-end;
+        gap: 8px;
+        margin-bottom: 19px;
+    }
+
+    .eyebrow {
+        margin-bottom: 12px;
+        font-size: 7px;
+        letter-spacing: 1.5px;
+    }
+
+    .intro-copy h1 {
+        font-size: clamp(31px, 8.3vw, 45px);
+        letter-spacing: -1.8px;
+        line-height: 1.02;
+    }
+
+    .scene-note {
+        gap: 6px;
+        margin-bottom: 3px;
+    }
+
+    .scene-note p {
+        font-size: 8px;
+        line-height: 1.5;
+    }
+
+    .status-dot {
+        width: 6px;
+        height: 6px;
+    }
+
+    .road {
+        height: 105px;
+        border-radius: 10px;
+    }
+
+    .road-edge-top {
+        top: 9px;
+    }
+
+    .road-edge-bottom {
+        bottom: 9px;
+    }
+
+    .road-word {
+    left: 12px;
+    right: 88px;
+    gap: 1px;
+    font-size: clamp(11px, 3.1vw, 15px);
+    letter-spacing: 0;
+}
+    .word-space {
+        flex-basis: 0.35em;
+    }
+
+    .car {
+        left: 12px;
+        width: clamp(82px, 24vw, 106px);
+    }
+
+    .road-trail {
+        height: 6px;
+    }
+
+    .road-caption-row {
+        margin-top: 9px;
+        font-size: 6px;
+        letter-spacing: 0.7px;
+        gap: 6px;
+    }
+
+    .metrics-heading {
+        margin-top: 19px;
+        gap: 8px;
+    }
+
+    .metrics-heading p {
+        font-size: 7px;
+        letter-spacing: 1px;
+    }
+
+    .metrics-heading > span {
+        font-size: 6px;
+        letter-spacing: 0.5px;
+        text-align: right;
+    }
+
+    .metrics-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 8px;
+        margin-top: 10px;
+    }
+
+    .metric-card {
+        min-height: 95px;
+        padding: 9px 10px 8px;
+        border-radius: 8px;
+    }
+
+    .metric-card-top {
+        font-size: 7px;
+    }
+
+    .metric-arrow {
+        font-size: 13px;
+    }
+
+    .metric-card h2 {
+        margin: 8px 0 3px;
+        font-size: 28px;
+        letter-spacing: -1px;
+    }
+
+    .metric-card > p {
+        font-size: 9px;
+        line-height: 1.35;
+    }
+
+    .metric-note {
+        margin-top: 8px;
+        font-size: 6px;
+        letter-spacing: 0.6px;
+    }
+
+    .progress-footer {
+        grid-template-columns: auto minmax(30px, 1fr) auto;
+        gap: 8px;
+        margin-top: 15px;
+    }
+
+    .progress-footer > span:first-child {
+        font-size: 6px;
+        letter-spacing: 0.7px;
+    }
+
+    .progress-number {
+        font-size: 11px;
+    }
+
+    .progress-number > span {
+        min-width: 15px;
+    }
+}
+
+/* ---------- SMALL PHONES ---------- */
+
+@media (max-width: 360px) {
+    .stage {
+        padding-right: 11px;
+        padding-left: 11px;
+    }
+
+    .intro-copy h1 {
+        font-size: 30px;
+        letter-spacing: -1.5px;
+    }
+
+    .scene-note p {
+        font-size: 7px;
+    }
+
+    .road-word {
+        left: 9px;
+        right: 90px;
+        font-size: 7.5px;
+    }
+
+    .car {
+        left: 9px;
+        width: 80px;
+    }
+
+    .metric-card {
+        padding-right: 8px;
+        padding-left: 8px;
+    }
+
+    .metric-card h2 {
+        font-size: 25px;
+    }
+}
+
+/* ---------- REDUCED MOTION ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* Mobile: make the welcome text clearly visible */
+@media (max-width: 600px) {
+    .road-trail {
+        top: 0;
+        height: 100%;
+        transform-origin: left center;
+    }
+
+    .road-word {
+        left: 12px;
+        right: 88px;
+        justify-content: flex-start;
+        gap: 1px;
+        overflow: visible;
+        color: #142015;
+        font-size: clamp(11px, 3.1vw, 15px);
+        letter-spacing: 0;
+        z-index: 3;
+    }
+
+    .road-word .value-letter.is-revealed {
+        color: #142015 !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: translateY(0) !important;
+    }
+}
